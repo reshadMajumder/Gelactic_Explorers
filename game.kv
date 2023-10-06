@@ -1,0 +1,808 @@
+
+<MainMenu>:
+    FloatLayout:  # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/planets_bg.jpg'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+
+    BoxLayout: #for right and side padding
+        orientation: 'horizontal'
+        
+        Label:
+            text:" "
+            size_hint:.2,1
+
+        BoxLayout: #for adding buttons
+            orientation:'horizontal'
+            size_hint:.6,1
+
+
+            Button:
+                # text: 'Normal Mode'
+                on_release: root.manager.current = 'avatar_selection'
+                # size_hint:.4,.2
+                text:"Normal mode"
+                font_size: 38
+                size_hint:.3,.2
+                pos_hint:{"center_x":.5,"center_y":.5}
+                #on_press:root.button_click()
+                #background_normal: ""
+                background_color: 1, 1, 1, 0
+                canvas.before:
+                    Color:
+                        rgba: .6, .8, 1, 0.9
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]
+            Label:
+                text:" " 
+                size_hint:.1,.1 
+
+            Button:
+            #     text: 'VR Mode'  # Implement VR mode if needed
+            #     size_hint:.4,.4
+                text:"VR mode"
+                font_size: 38
+                size_hint:.3,.2
+                pos_hint:{"center_x":.5,"center_y":.5}
+                #on_press:root.button_click()
+                #background_normal: ""
+                background_color: 0, 1, 1, 0
+
+                canvas.before:
+                    Color:
+                        # rgba: 1, .8, 1, 0.9
+                        rgba: .6, .8, 1, 0.9
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]
+
+        Label:
+            text:""
+            size_hint:.2,1
+            
+
+<AvatarSelection>:
+    FloatLayout:  # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/blue_planet_bg.jpg'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+    BoxLayout: #side deign
+        orientation: 'horizontal'
+        Label:
+            text:' '
+            size_hint:.3,1
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text:'Chose Your Avatar'
+                font_size:30
+                size_hint:1,.2
+                
+                canvas.before:
+                    Color:
+                        rgba: .5, .2, .9, .9  # Red background color (R, G, B, A)
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+                    
+            BoxLayout:
+                orientation: 'horizontal'
+                Button:
+                    background_normal: 'resourse/old_man_avatar.png'
+                    background_down: 'resourse/old_man_avatar.png'
+                    size_hint:.7,.5
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    
+                Button:
+                    background_normal: 'resourse/astronaut_avatar.png'
+                    background_down: 'resourse/astronaut_avatar.png'
+                    size_hint:.7,.5
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    on_press: root.manager.current = 'spaceship_selection'
+
+                Button:
+                    background_normal: 'resourse/kid_avatar.png'
+                    background_down: 'resourse/kid_avatar.png'
+                    size_hint:.7,.5
+                    pos_hint:{"center_x":.5,"center_y":.5}
+
+        Label:
+            text:' '
+            size_hint:.3,1
+
+<SpaceShipSelection>:
+    FloatLayout:  # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/nebula_bg.jpg'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+    BoxLayout: #side deign
+        orientation: 'horizontal'
+        Label:
+            text:' '
+            size_hint:.4,1
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text:'Chose Your Spaceship'
+                font_size:30
+                size_hint:1,.2
+                canvas.before:
+                    Color:
+                        rgba: .5, .2, .9, .9  # Red background color (R, G, B, A)
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                Button:
+                    background_normal: 'resourse/car.png'
+                    background_down: 'resourse/car.png'
+                    size_hint:.5,.5
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                Button:
+                    background_normal: 'resourse/truck.png'
+                    background_down: 'resourse/truck.png'
+                    size_hint:.5,.5
+                    pos_hint:{"center_x":.5,"center_y":.5}                    
+                Button:
+                    background_normal: 'resourse/spaceship.png'
+                    background_down: 'resourse/spaceship.png'
+                    size_hint:.5,.5
+                    pos_hint:{"center_x":.5,"center_y":.5}  
+                    on_release: root.manager.current = 'planet_selection'
+          
+
+        Label:
+            text:' '
+            size_hint:.4,1
+
+<PlanetSelection>:
+    FloatLayout:  # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/galaxy_bg.jpg'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+    BoxLayout:
+    #side deign
+        orientation: 'horizontal'
+        Label:
+            text:' '
+            size_hint:.4,1
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text:'Chose Your Destination'
+                font_size:30
+                size_hint:1,.2
+                canvas.before:
+                    Color:
+                        rgba: .5, .2, .9, .9  # Red background color (R, G, B, A)
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                Button:
+                    background_normal:'resourse/saturn.png'
+                    background_down:'resourse/saturn.png'
+                    size_hint:.7,.4
+                    pos_hint:{"center_x":.5,"center_y":.5} 
+
+ 
+
+                Button:
+                    background_normal:'resourse/mars.png'
+                    background_down:'resourse/mars.png'
+                    size_hint:.7,.4
+                    pos_hint:{"center_x":.5,"center_y":.5} 
+                    on_release: root.manager.current = 'start_game'
+        
+                Button:
+                    background_normal:'resourse/pluto.png'
+                    background_down:'resourse/pluto.png'
+                    size_hint:.7,.4
+                    pos_hint:{"center_x":.5,"center_y":.5} 
+        Label:
+            text:' '
+            size_hint:.4,1
+
+ #before game start page         
+# <GameStart>:
+#     FloatLayout:  # Use FloatLayout as the root widget
+#         Image:
+#             source: 'resourse/game_start_bg.jpeg'  # Replace with your image file path
+#             allow_stretch: True  # Allow the image to stretch to fill the screen
+#             keep_ratio: False 
+#     BoxLayout:
+#         orientation:'horizontal'
+
+#         BoxLayout:
+#             orientation:'vertical'
+
+#             Image:
+#                 source: 'resourse/astronaut_avatar.png'
+#                 size_hint: .6,1
+#                 pos_hint:{"center_x":.5,"center_y":.5}
+
+
+#             Button:
+#                 text:'start game'  
+#                 on_release: root.manager.current='space_game'  
+
+#                 size_hint:.2,.1
+#                 pos_hint:{"center_x":.5,"center_y":.5}
+#                 #on_press:root.button_click()
+#                 #background_normal: ""
+#                 background_color: 0, 1, 1, 0
+
+#                 canvas.before:
+#                     Color:
+#                         # rgba: 1, .8, 1, 0.9
+#                         rgba: .6, .8, 1, 0.5
+#                     RoundedRectangle:
+#                         size: self.size
+#                         pos: self.pos
+#                         radius: [15]
+#             Label:
+#                 text:' '
+#                 size_hint:.2,.1
+# <StartScreen>:
+#         FloatLayout:  # Use FloatLayout as the root widget
+#         Image:
+#             source: 'resourse/menu_bg.jpg'  # Replace with your image file path
+#             allow_stretch: True  # Allow the image to stretch to fill the screen
+#             keep_ratio: False 
+
+
+<GameScreen>:
+    FloatLayout:  # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/game_bg.jpg'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+
+
+<SpaceGame>:
+    FloatLayout:  # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/menu_bg.jpg'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+
+
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Welcome to the Space Game!'
+
+
+
+            
+        Button:
+            text: 'go to quiz page'
+            on_release: root.manager.current = 'quiz_game'
+
+
+<QuizGameQ1>:
+    FloatLayout:
+      # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/night_bg.jpg'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text:'What is the gravity of mars?'
+            size_hint:1,.3
+            background_color:0, 1, 1, 0
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint:1,.4
+            BoxLayout:
+                orientation:'horizontal'
+                spacing:'40dp'
+
+                Label:
+                    text:' '
+                    size_hint:.2,1
+
+                #here four ans button given
+                Button:
+                    text:'10.44m/s2'
+                    size_hint:.5,.3
+                    id:my_button_one
+                    on_release:my_button_one.background_color=1,.1,0,.7
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:ans_one
+                    text:'3.72m/s2'
+                    size_hint:.5,.3
+                    on_release:ans_one.text="correct answer" #answer correct
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:my_button_two
+                    on_release:my_button_two.background_color=1,.1,0,.7
+                    text:'5.23m/s3'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:my_button_three
+                    on_release:my_button_three.background_color=1,.1,0,.7
+                    text:'9.43m/s2'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                                        
+
+                Label:
+                    text:' '
+                    size_hint:.2,1
+
+
+
+        Button:
+            text: 'Next Question'
+            size_hint:.2,.1
+            pos_hint:{"center_x":.5,"center_y":.5}
+            on_release: root.manager.current = 'quiz_game2'
+            background_color: 0, 1, 1, 0
+
+            canvas.before:
+                Color:
+                    # rgba: 1, .8, 1, 0.9
+                    rgba: .6, .8, 1, 0.5
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15]            
+
+<QuizGameQ2>:
+    FloatLayout:
+      # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/night_bg.jpg'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text:'What is the primary gas that makes up the Martian atmosphere?'
+            size_hint:1,.3
+            background_color:0, 1, 1, 0
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint:1,.4
+            BoxLayout:
+                orientation:'horizontal'
+                spacing:'40dp'
+
+                Label:
+                    text:' '
+                    size_hint:.2,1
+
+                #here four ans button given
+                Button:
+                    id:my_button_four
+                    on_release:my_button_four.background_color=1,.1,0,.7
+                    text:'Oxygen'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:ans_two
+                    text:'CO2'
+                    on_release:ans_two.text="correct answer" #answer correct
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:my_button_five
+                    on_release:my_button_five.background_color=1,.1,0,.7
+                    text:'Nitrogen'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:my_button_six
+                    on_release:my_button_six.background_color=1,.1,0,.7
+                    text:'Hydrogen'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                                        
+
+                Label:
+                    text:' '
+                    size_hint:.2,1
+
+
+
+        Button:
+            text: 'Next Question'
+            size_hint:.2,.1
+            pos_hint:{"center_x":.5,"center_y":.5}
+            #on_release: root.manager.current = 'main_menu'
+            on_release: root.manager.current = 'quiz_game3'
+            background_color: 0, 1, 1, 0
+
+            canvas.before:
+                Color:
+                    # rgba: 1, .8, 1, 0.9
+                    rgba: .6, .8, 1, 0.5
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15]
+
+
+
+<QuizGameQ3>:
+    FloatLayout:
+      # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/night_bg.jpg'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text:'Which distinctive feature of Mars surface is often referred to as the "Red Planet"?'
+            size_hint:1,.3
+            background_color:0, 1, 1, 0
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint:1,.4
+            BoxLayout:
+                orientation:'horizontal'
+                spacing:'40dp'
+
+                Label:
+                    text:' '
+                    size_hint:.2,1
+
+                #here four ans button given
+                Button:
+                    id:my_button_seven
+                    on_release:my_button_seven.background_color=1,.1,0,.7
+                    text:'Lakes'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:ans_three
+                    text:'Deserts'
+                    on_release:ans_three.text="correct answer" #answer correct
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:my_button_eight
+                    on_release:my_button_eight.background_color=1,.1,0,.7
+                    text:'Mountains'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:my_button_nine
+                    on_release:my_button_nine.background_color=1,.1,0,.7
+                    text:'Polar Ice Caps'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                                        
+
+                Label:
+                    text:' '
+                    size_hint:.2,1
+
+
+
+        Button:
+            text: 'Next Question'
+            size_hint:.2,.1
+            pos_hint:{"center_x":.5,"center_y":.5}
+            on_release: root.manager.current = 'quiz_game4'
+            background_color: 0, 1, 1, 0
+
+            canvas.before:
+                Color:
+                    # rgba: 1, .8, 1, 0.9
+                    rgba: .6, .8, 1, 0.5
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15]
+
+
+<QuizGameQ4>:
+    FloatLayout:
+      # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/night_bg.jpg'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text:'What is the average surface temperature on Mars?'
+            size_hint:1,.3
+            background_color:0, 1, 1, 0
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint:1,.4
+            BoxLayout:
+                orientation:'horizontal'
+                spacing:'40dp'
+
+                Label:
+                    text:' '
+                    size_hint:.2,1
+
+                #here four ans button given
+                Button:
+                    id:ans_four
+                    on_release:ans_four.text="correct answer" #answer correct
+                    text:'-63'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:my_button_ten
+                    on_release:my_button_ten.background_color=1,.1,0,.7
+                    text:'25'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:my_button_eleven
+                    on_release:my_button_eleven.background_color=1,.1,0,.7
+                    text:'0'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                Button:
+                    id:my_button_twelve
+                    on_release:my_button_twelve.background_color=1,.1,0,.7
+                    text:'125'
+                    size_hint:.5,.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    background_color: 0, 1, 1, 0
+
+                    canvas.before:
+                        Color:
+                            # rgba: 1, .8, 1, 0.9
+                            rgba: .6, .8, 1, 0.5
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+                                        
+
+                Label:
+                    text:' '
+                    size_hint:.2,1
+
+
+
+        Button:
+            text: 'End Game'
+            size_hint:.2,.1
+            pos_hint:{"center_x":.5,"center_y":.5}
+
+            #on_release: root.manager.current = 'main_menu'
+            on_release: root.manager.current = 'end_text'
+            background_color: 0, 1, 1, 0
+
+            canvas.before:
+                Color:
+                    # rgba: 1, .8, 1, 0.9
+                    rgba: .6, .8, 1, 0.5
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15]
+
+
+<EndText>:
+    FloatLayout:  # Use FloatLayout as the root widget
+        Image:
+            source: 'resourse/final_bg.png'  # Replace with your image file path
+            allow_stretch: True  # Allow the image to stretch to fill the screen
+            keep_ratio: False 
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: ' '
+            font_size:'70dp'
+            size_hint:1,.3
+            pos_hint:{"center_x":.5,"center_y":.5}
+
+        Label:
+            text: ' '
+            size_hint:.1,1
+            font_size:'45dp'
+            pos_hint:{"center_x":.5,"center_y":.5}
+        Label:
+            text:' '
+            font_size:'60dp'
+            size_hint:.1,1
+            pos_hint:{"center_x":.5,"center_y":.5}
+
+        Button:
+            text: 'play again'
+            on_release: root.manager.current = 'main_menu'
+
+            size_hint:.2,.2
+            pos_hint:{"center_x":.5,"center_y":.2}
+            #on_press:root.button_click()
+            #background_normal: ""
+            background_color: 0, 1, 1, 0
+
+            canvas.before:
+                Color:
+                    # rgba: 1, .8, 1, 0.9
+                    rgba: 0.5, 0, 0.5, 1.0
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15]
+        Label:
+            text:' '
+            size_hint:.2,1
